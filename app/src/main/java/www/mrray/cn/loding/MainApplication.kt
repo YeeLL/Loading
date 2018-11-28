@@ -7,6 +7,6 @@ class MainApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        Loading.init(this).setTopId(R.id.title_bar)
+        Loading.init(this).setCommonViewLayoutId(R.layout.layout_new_loading)
     }
 }

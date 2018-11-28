@@ -6,36 +6,15 @@
                 android:layout_height="match_parent">
 
     <RelativeLayout
+            android:visibility="visible"
             android:id="@+id/yee_xin_loading_common"
-            android:layout_width="match_parent" android:layout_height="match_parent">
-        <ProgressBar
-                android:layout_marginBottom="10dp"
-                android:layout_above="@+id/yee_xin_loading_txt"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/loading_progress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        <TextView
-                android:layout_centerInParent="true"
-                android:id="@+id/yee_xin_loading_txt"
-                android:text="加载中，请稍等...."
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:ignore="MissingConstraints"/>
-    </RelativeLayout>
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
     <RelativeLayout
             android:visibility="gone"
             android:id="@+id/yee_xin_loading_error"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        <TextView
-                android:layout_centerInParent="true"
-                android:id="@+id/yee_xin_loading_txt_error"
-                android:text="网络错误，请点击空白重新加载"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:ignore="MissingConstraints"/>
-    </RelativeLayout>
+            android:layout_height="match_parent"/>
 
 </RelativeLayout>
