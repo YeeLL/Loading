@@ -63,9 +63,9 @@ object Loading : IloadingManager {
 
     @SuppressLint("InflateParams")
     private fun getLayoutType(contentView: ViewGroup, activity: Activity) {
-        mLoadingView = LayoutInflater.from(activity).inflate(R.layout.layout_loading, null, false)
-        mLoadingCommonView = mLoadingView!!.findViewById(R.id.loading_common)
-        mLoadingErrorView = mLoadingView!!.findViewById(R.id.loading_error)
+        mLoadingView = LayoutInflater.from(activity).inflate(R.layout.yee_xin_layout_loading, null, false)
+        mLoadingCommonView = mLoadingView!!.findViewById(R.id.yee_xin_loading_common)
+        mLoadingErrorView = mLoadingView!!.findViewById(R.id.yee_xin_loading_error)
         when (contentView) {
             is RelativeLayout -> {
                 contentView.addView(mLoadingView)
