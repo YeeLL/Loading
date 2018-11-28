@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity(), ILoading {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        Loading.loaded()
         title_bar.setOnClickListener {
             Loading.netError()
         }
