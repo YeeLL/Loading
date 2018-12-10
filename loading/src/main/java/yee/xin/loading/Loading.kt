@@ -11,10 +11,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
-import java.util.ArrayList
-
 
 @SuppressLint("StaticFieldLeak")
 object Loading : IloadingManager {
@@ -38,6 +37,15 @@ object Loading : IloadingManager {
     private var mAnchorId: Int = 0
     private var mDefaultLoadingStatus = true//默认显示为加载中状态
     private var mActivity: Activity? = null
+    private var isBackShow = true
+
+    /**
+     * 是否显示返回键  默认返回
+     */
+    fun setBackShow(backShow: Boolean) {
+        this.isBackShow = backShow
+    }
+
     /**
      * 设置锚点  将布局放置在锚点下方
      * @param resId 锚点view ID
@@ -59,8 +67,9 @@ object Loading : IloadingManager {
      * 自定义的加载view
      * @param commonViewId
      */
-    fun setCommonViewLayoutId(commonViewId: Int) {
+    fun setCommonViewLayoutId(commonViewId: Int): Loading {
         this.mCommonViewLayoutId = commonViewId
+        return this
     }
 
     fun init(application: Application): Loading {
@@ -147,6 +156,11 @@ object Loading : IloadingManager {
             LayoutInflater.from(activity).inflate(R.layout.yee_xin_layout_loading, null, false) as ViewGroup
         mContentViewList[activity] = loadingView
 
+        val back = loadingView.findViewById<ImageView>(R.id.yee_xin_loading_back)
+        back.visibility = if (isBackShow) View.VISIBLE else View.GONE
+        back?.setOnClickListener {
+            activity.finish()
+        }
         val commonView = LayoutInflater.from(activity).inflate(mCommonViewLayoutId, null, false)
         val loadingCommonContainer = loadingView.findViewById(R.id.yee_xin_loading_common) as ViewGroup
         loadingCommonContainer.addView(commonView)
@@ -212,5 +226,4 @@ object Loading : IloadingManager {
         mErrorViewList[mActivity]!!.visibility = if (!isError) View.GONE else View.VISIBLE
         mContentViewList[mActivity]!!.visibility = View.VISIBLE
     }
-
 }

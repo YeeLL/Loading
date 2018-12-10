@@ -7,6 +7,6 @@ class MainApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        Loading.init(this).setCommonViewLayoutId(R.layout.layout_new_loading)
+        Loading.init(this).setBackShow(true)
     }
 }

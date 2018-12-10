@@ -8,13 +8,4 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
-    <TextView
-            android:id="@+id/title_bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Hello World!" tools:ignore="MissingConstraints"/>
-    <TextView
-            android:text="我是打開房間啊開綠燈解放看來"
-            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-
 </RelativeLayout>
